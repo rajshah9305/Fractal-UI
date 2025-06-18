@@ -9,7 +9,6 @@ import LivePreview from '../components/LivePreview';
 import ProjectList from '../components/ProjectList';
 import MessageBox from '../components/MessageBox';
 import { supabase } from '../lib/supabaseClient';
-import '../styles/globals.css';
 
 // --- App Shell ---
 function FractalUIApp() {
