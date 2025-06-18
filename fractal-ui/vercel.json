@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "builds": [
+    { "src": "src/pages/api/generate-ui.js", "use": "@vercel/node" },
+    { "src": "next.config.js", "use": "@vercel/next" }
+  ],
+  "routes": [
+    { "src": "/api/generate-ui", "dest": "/src/pages/api/generate-ui.js" },
+    { "src": "/(.*)", "dest": "/src/pages/$1" }
+  ]
+} 

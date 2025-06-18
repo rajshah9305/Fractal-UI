@@ -1,0 +1,32 @@
+# This file configures the local development environment using Docker.
+# It sets up a PostgreSQL database and Supabase Studio for easy management.
+version: '3.8'
+
+services:
+  db:
+    # Uses a specific, stable version of the Supabase PostgreSQL image.
+    image: supabase/postgres:15.1.0.118
+    restart: always
+    ports:
+      - "5432:5432"
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+
+  studio:
+    # The Supabase Studio image has been updated to a more recent and stable version.
+    image: supabase/studio:20240523-2814-release
+    restart: always
+    ports:
+      - "54323:3000"
+    environment:
+      # Connects Studio to the PostgreSQL database service.
+      STUDIO_PG_META_URL: http://db:5432
+      POSTGRES_PASSWORD: postgres
+    depends_on:
+      - db
+
+volumes:
+  db-data:

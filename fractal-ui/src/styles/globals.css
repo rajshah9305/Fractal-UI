@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-background text-white font-sans min-h-screen antialiased transition-colors duration-300;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  background: theme('colors.surface');
+}
+::-webkit-scrollbar-thumb {
+  background: theme('colors.primary');
+  border-radius: 4px;
+}
+::selection {
+  @apply bg-primary text-white;
+}
+
+.dark body {
+  @apply bg-background text-white;
+} 
